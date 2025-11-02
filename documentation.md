@@ -9,7 +9,21 @@ title: Documentation
 
 PELINN-Q biedt tools voor quantum error mitigation met liquid neural networks. Deze documentatie helpt je om de library te gebruiken en te begrijpen.
 
-## Installatie
+---
+
+## 📖 Class Explainers
+
+Gedetailleerde uitleg over de belangrijkste classes en architecturen in PELINN-Q:
+
+### [Understanding LTCCell](./docs/explain-model)
+Diepgaande uitleg over de **Liquid Time-Constant (LTC)** recurrent neural network cell. Leer over:
+- Weights en learnable parameters (time-constant pathway, gating pathway, attractor vector)
+- Forward dynamics en integratie met Euler steps
+- Regularisatie hooks voor training
+
+---
+
+## 🚀 Installatie
 
 ### Vereisten
 
@@ -32,7 +46,9 @@ pip install -r requirements.txt
 pip install -e .
 ```
 
-## Basis Gebruik
+---
+
+## 💻 Basis Gebruik
 
 ### Een Liquid Neural Network Trainen
 
@@ -61,7 +77,9 @@ mitigator = QuantumErrorMitigator(lnn)
 mitigated_results = mitigator.mitigate(raw_quantum_data)
 ```
 
-## API Referentie
+---
+
+## 📚 API Referentie
 
 ### LiquidNeuralNetwork
 
@@ -88,7 +106,9 @@ Klasse voor quantum error mitigation.
 - `mitigate(quantum_data)`: Pas error mitigation toe
 - `evaluate(test_data)`: Evalueer mitigation performance
 
-## Configuratie
+---
+
+## ⚙️ Configuratie
 
 Je kunt PELINN-Q configureren via een `config.ini` bestand:
 
@@ -104,11 +124,15 @@ epochs = 100
 batch_size = 32
 ```
 
-## Voorbeelden
+---
+
+## 📓 Voorbeelden
 
 Bekijk de `notebooks/` folder voor Jupyter notebook voorbeelden en de `scripts/` folder voor standalone scripts.
 
-## Troubleshooting
+---
+
+## 🔧 Troubleshooting
 
 ### Veel voorkomende problemen
 
@@ -119,7 +143,9 @@ pip install -r requirements.txt
 
 **CUDA errors**: Check of PyTorch correct geïnstalleerd is voor je systeem
 
-## Meer Informatie
+---
+
+## 🔗 Meer Informatie
 
 - [Getting Started Guide](./getting-started)
 - [About PELINN-Q](./about)
