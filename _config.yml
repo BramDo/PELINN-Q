@@ -1,7 +1,5 @@
-title: My Jekyll Site
-
-description: This is a description of my Jekyll site.
-
+title: "PELINN-Q"
+description: "Liquid Time-Constant Networks for Quantum Systems"
 theme: minima
 
 header_pages:
