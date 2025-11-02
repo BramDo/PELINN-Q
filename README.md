@@ -21,18 +21,4 @@ Technische documentatie over hoe je PELINN-Q kunt installeren, configureren en g
 ### [Getting Started](./getting-started)
 Een stap-voor-stap handleiding om snel te beginnen met PELINN-Q, inclusief installatieïnstructies en je eerste experiment.
 
----
 
-## 🚀 Quick Start
-
-```bash
-# Installeer PELINN-Q
-pip install -r requirements.txt
-
-# Run een voorbeeld
-python scripts/example.py
-```
-
-## 📧 Contact
-
-Voor vragen of feedback, neem contact op via GitHub Issues.
