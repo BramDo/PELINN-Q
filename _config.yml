@@ -1,0 +1,9 @@
+title: My Jekyll Site
+
+description: This is a description of my Jekyll site.
+
+theme: minima
+
+header_pages:
+  - index.md
+  - docs/explain-model.md
