@@ -3,46 +3,46 @@ layout: default
 title: Getting Started
 ---
 
-# Getting Started met PELINN-Q
+# Getting Started with PELINN-Q
 
-Deze gids helpt je om snel aan de slag te gaan met PELINN-Q.
+This guide helps you quickly get started with PELINN-Q.
 
-## Stap 1: Installatie
+## Step 1: Installation
 
-### Clone de Repository
+### Clone the Repository
 
 ```bash
 git clone https://github.com/BramDo/PELINN-Q.git
 cd PELINN-Q
 ```
 
-### Installeer Dependencies
+### Install Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### Installeer PELINN-Q
+### Install PELINN-Q
 
 ```bash
 pip install -e .
 ```
 
-## Stap 2: Je Eerste Experiment
+## Step 2: Your First Experiment
 
-### Basis Voorbeeld
+### Basic Example
 
-Maak een nieuw Python bestand `my_first_experiment.py`:
+Create a new Python file `my_first_experiment.py`:
 
 ```python
 import numpy as np
 from pelinn import LiquidNeuralNetwork
 
-# Maak dummy data
+# Create dummy data
 X_train = np.random.randn(100, 10)
 y_train = np.random.randn(100, 5)
 
-# Initialiseer het netwerk
+# Initialize the network
 lnn = LiquidNeuralNetwork(
     input_size=10,
     hidden_size=20,
@@ -59,68 +59,68 @@ predictions = lnn.predict(X_test)
 print("Predictions:", predictions)
 ```
 
-Run het script:
+Run the script:
 
 ```bash
 python my_first_experiment.py
 ```
 
-## Stap 3: Quantum Error Mitigation
+## Step 3: Quantum Error Mitigation
 
-### Quantum Circuit met Error Mitigation
+### Quantum Circuit with Error Mitigation
 
 ```python
 from qiskit import QuantumCircuit, execute, Aer
 from pelinn.qem import QuantumErrorMitigator
 from pelinn import LiquidNeuralNetwork
 
-# Maak een quantum circuit
+# Create a quantum circuit
 qc = QuantumCircuit(2, 2)
 qc.h(0)
 qc.cx(0, 1)
 qc.measure([0, 1], [0, 1])
 
-# Simuleer met ruis
+# Simulate with noise
 backend = Aer.get_backend('qasm_simulator')
 job = execute(qc, backend, shots=1000)
 noisy_results = job.result().get_counts()
 
-# Train een mitigator
+# Train a mitigator
 lnn = LiquidNeuralNetwork(input_size=4, hidden_size=10, output_size=4)
 mitigator = QuantumErrorMitigator(lnn)
 
-# Pas mitigation toe
+# Apply mitigation
 mitigated_results = mitigator.mitigate(noisy_results)
 
 print("Noisy results:", noisy_results)
 print("Mitigated results:", mitigated_results)
 ```
 
-## Stap 4: Gebruik Bestaande Scripts
+## Step 4: Use Existing Scripts
 
-PELINN-Q bevat voorbeeldscripts in de `scripts/` folder:
+PELINN-Q contains example scripts in the `scripts/` folder:
 
 ```bash
-# Run een voorbeeld script
+# Run an example script
 python scripts/example.py
 ```
 
-## Stap 5: Experimenteer met Notebooks
+## Step 5: Experiment with Notebooks
 
-Open de Jupyter notebooks in de `notebooks/` folder:
+Open the Jupyter notebooks in the `notebooks/` folder:
 
 ```bash
 jupyter notebook notebooks/
 ```
 
-Deze notebooks bevatten:
-- Gedetailleerde tutorials
-- Visualisaties
-- Vergelijkingen met andere methoden
+These notebooks contain:
+- Detailed tutorials
+- Visualizations
+- Comparisons with other methods
 
-## Configuratie Aanpassen
+## Customize Configuration
 
-Pas de configuratie aan via `test.ini`:
+Customize the configuration via `test.ini`:
 
 ```ini
 [model]
@@ -133,15 +133,7 @@ epochs = 100
 learning_rate = 0.001
 ```
 
-## Volgende Stappen
+## Next Steps
 
-- Bekijk de [volledige documentatie](./documentation) voor meer details
-- Lees meer [over het project](./about)
-- Experimenteer met eigen quantum circuits
-
-## Hulp Nodig?
-
-- Open een [GitHub Issue](https://github.com/BramDo/PELINN-Q/issues)
-- Bekijk de [documentatie](./documentation)
-
-[Terug naar Home](./)
+- Check out the [full documentation](./documentation) for more details
+- Read more [about the project](./about)
