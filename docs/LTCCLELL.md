@@ -76,3 +76,21 @@ For downstream loss functions the cell caches two scalar quantities:
 
 These are exposed as read-only properties so that a training loop can include
 additional penalties without recomputing the forward pass.
+
+``` mermaid
+flowchart TD
+        X(["Input features"])
+        subgraph LTCCell["LTC Cell"]
+            direction TB
+            X -->|W_tx, W_th| Tau["Tijdconstante τ"]
+            X -->|W_gx, W_gh| Gate["Gate g"]
+            Tau --> Euler["Euler update"]
+            Gate --> Euler
+            A["Attractor A"] --> Euler
+            Euler --> LN["LayerNorm"]
+        end
+        LN --> Repeat{{"Herhaal steps"}}
+        Repeat --> Head["Linear head"]
+        Head -->|opt. tanh| Output
+```
+
