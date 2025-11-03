@@ -5,75 +5,67 @@ title: Documentation
 
 # Documentation
 
-## Overzicht
+## Overview
 
-PELINN-Q biedt tools voor quantum error mitigation met liquid neural networks. Deze documentatie helpt je om de library te gebruiken en te begrijpen.
+PELINN-Q provides tools for quantum error mitigation with liquid neural networks. This documentation helps you use and understand the library.
 
 ---
 
 ## 📖 Class Explainers
 
-Gedetailleerde uitleg over de belangrijkste classes en architecturen in PELINN-Q:
+Detailed explanations of the key classes and architectures in PELINN-Q:
 
 ### [Understanding LTCCell](./docs/explain-model)
-Diepgaande uitleg over de **Liquid Time-Constant (LTC)** recurrent neural network cell. Leer over:
-- Weights en learnable parameters (time-constant pathway, gating pathway, attractor vector)
-- Forward dynamics en integratie met Euler steps
-- Regularisatie hooks voor training
+In-depth explanation of the **Liquid Time-Constant (LTC)** recurrent neural network cell. Learn about:
+- Weights and learnable parameters (time-constant pathway, gating pathway, attractor vector)
+- Forward dynamics and integration with Euler steps
+- Regularization hooks for training
 
 ---
 
-## 🚀 Installatie
+## 🚀 Installation
 
-### Vereisten
+### Requirements
 
 - Python 3.8+
 - NumPy
 - PyTorch
-- Qiskit (voor quantum simulaties)
+- Qiskit (for quantum simulations)
 
-### Installeren
+### Install
 
 ```bash
-# Clone de repository
+# Clone the repository
 git clone https://github.com/BramDo/PELINN-Q.git
 cd PELINN-Q
-
-# Installeer dependencies
-pip install -r requirements.txt
-
-# Installeer PELINN-Q
-pip install -e .
 ```
 
 ---
 
-## 💻 Basis Gebruik
-
-### Een Liquid Neural Network Trainen
+### Train a Liquid Neural Network
 
 ```python
 from pelinn import LiquidNeuralNetwork
 from pelinn.qem import QuantumErrorMitigator
 
-# Initialiseer het netwerk
+# Initialize the network
 lnn = LiquidNeuralNetwork(
     input_size=10,
     hidden_size=20,
     output_size=5
 )
 
-# Train het model
+# Train the model
 lnn.train(training_data, epochs=100)
 ```
 
-### Quantum Error Mitigation Toepassen
+### Apply Quantum Error Mitigation
 
 ```python
-# Maak een QEM mitigator
+# Create a QEM mitigator
 mitigator = QuantumErrorMitigator(lnn)
 
-# Pas mitigation toe op quantum resultaten
+# Apply mitigation to quantum results
 mitigated_results = mitigator.mitigate(raw_quantum_data)
 ```
 
@@ -83,34 +75,34 @@ mitigated_results = mitigator.mitigate(raw_quantum_data)
 
 ### LiquidNeuralNetwork
 
-De hoofdklasse voor liquid neural networks.
+The main class for liquid neural networks.
 
 **Parameters:**
-- `input_size` (int): Aantal input features
-- `hidden_size` (int): Aantal hidden neurons
-- `output_size` (int): Aantal output features
-- `tau` (float): Time constant voor het netwerk
+- `input_size` (int): Number of input features
+- `hidden_size` (int): Number of hidden neurons
+- `output_size` (int): Number of output features
+- `tau` (float): Time constant for the network
 
-**Methodes:**
-- `train(data, epochs)`: Train het netwerk
-- `predict(input)`: Voorspel output voor gegeven input
+**Methods:**
+- `train(data, epochs)`: Train the network
+- `predict(input)`: Predict the output for a given input
 
 ### QuantumErrorMitigator
 
-Klasse voor quantum error mitigation.
+Class for quantum error mitigation.
 
 **Parameters:**
-- `model`: Getraind liquid neural network model
+- `model`: Trained liquid neural network model
 
-**Methodes:**
-- `mitigate(quantum_data)`: Pas error mitigation toe
-- `evaluate(test_data)`: Evalueer mitigation performance
+**Methods:**
+- `mitigate(quantum_data)`: Apply error mitigation
+- `evaluate(test_data)`: Evaluate mitigation performance
 
 ---
 
-## ⚙️ Configuratie
+## ⚙️ Configuration
 
-Je kunt PELINN-Q configureren via een `config.ini` bestand:
+You can configure PELINN-Q through a `config.ini` file:
 
 ```ini
 [model]
@@ -128,27 +120,27 @@ batch_size = 32
 
 ## 📓 Voorbeelden
 
-Bekijk de `notebooks/` folder voor Jupyter notebook voorbeelden en de `scripts/` folder voor standalone scripts.
+Check the `notebooks/` folder for Jupyter Notebook examples and the `scripts/` folder for standalone scripts.
 
 ---
 
 ## 🔧 Troubleshooting
 
-### Veel voorkomende problemen
+### Common issues
 
-**ImportError**: Zorg dat alle dependencies geïnstalleerd zijn
+**ImportError**: Make sure all dependencies are installed
 ```bash
 pip install -r requirements.txt
 ```
 
-**CUDA errors**: Check of PyTorch correct geïnstalleerd is voor je systeem
+**CUDA errors**: Check that PyTorch is installed correctly for your system
 
 ---
 
-## 🔗 Meer Informatie
+## 🔗 More Information
 
 - [Getting Started Guide](./getting-started)
 - [About PELINN-Q](./about)
 - [GitHub Repository](https://github.com/BramDo/PELINN-Q)
 
-[Terug naar Home](./)
+[Back to Home](./)

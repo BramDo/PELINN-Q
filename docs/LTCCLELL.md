@@ -82,15 +82,14 @@ flowchart TD
         X(["Input features"])
         subgraph LTCCell["LTC Cell"]
             direction TB
-            X -->|W_tx, W_th| Tau["Tijdconstante τ"]
+            X -->|W_tx, W_th| Tau["Time constant τ"]
             X -->|W_gx, W_gh| Gate["Gate g"]
             Tau --> Euler["Euler update"]
             Gate --> Euler
             A["Attractor A"] --> Euler
             Euler --> LN["LayerNorm"]
         end
-        LN --> Repeat{{"Herhaal steps"}}
+        LN --> Repeat{{"Repeat steps"}}
         Repeat --> Head["Linear head"]
         Head -->|opt. tanh| Output
 ```
-

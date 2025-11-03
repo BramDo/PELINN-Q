@@ -1,39 +1,39 @@
-# Klassen in `pelinn/model.py`
+# Classes in `pelinn/model.py`
 
 ## `LTCCell`
-Een `torch.nn.Module` die een Liquid Time-Constant (LTC) cel implementeert met
-regularisatietermen voor gating-activaties en parameter `A`.
+A `torch.nn.Module` that implements a Liquid Time-Constant (LTC) cell with
+regularisation terms for gating activations and the parameter `A`.
 
-### Belangrijkste attributen
-- **`W_tx`, `W_th`, `b_t`**: lineaire lagen en bias voor de tijdconstante
-  dynamiek.
-- **`W_gx`, `W_gh`, `b_g`**: lineaire lagen en bias voor de gating-functie.
-- **`A`**: leerbare parameter die het attractorpunt van de dynamiek bepaalt.
-- **`ln_h`**: `LayerNorm` voor stabilisatie van de verborgen toestand.
-- **`_last_gate_reg`, `_last_A_reg`**: cache voor de meest recente
-  regularisatiewaarden.
+### Key attributes
+- **`W_tx`, `W_th`, `b_t`**: linear layers and bias for the time-constant
+  dynamics.
+- **`W_gx`, `W_gh`, `b_g`**: linear layers and bias for the gating function.
+- **`A`**: learnable parameter that sets the attractor point of the dynamics.
+- **`ln_h`**: `LayerNorm` that stabilises the hidden state.
+- **`_last_gate_reg`, `_last_A_reg`**: cache storing the most recent
+  regularisation values.
 
-### Kernmethoden
-- **`forward(x, h, dt)`**: voert één LTC-tijdstap uit met zachte plus/tanh-
-  dynamiek en slaat regularisatietermen op.
-- **`last_gate_reg` / `last_A_reg`**: eigenschapsmethoden die de laatst
-  berekende regularisatietermen teruggeven.
+### Core methods
+- **`forward(x, h, dt)`**: executes one LTC time step with softplus/tanh
+  dynamics and caches regularisation terms.
+- **`last_gate_reg` / `last_A_reg`**: property methods returning the last
+  computed regularisation values.
 
 ## `PELiNNQEM`
-Een liquid neural network-regressor voor quantum error mitigation, opgebouwd uit
-één `LTCCell` en een lineaire kop.
+A liquid neural network regressor for quantum error mitigation built from a
+single `LTCCell` and a linear head.
 
-### Belangrijkste attributen
-- **`cell`**: de onderliggende `LTCCell`.
-- **`h0`**: leerbare initiële verborgen toestand.
-- **`head`**: lineaire projectie van verborgen toestand naar scalar output.
-- **`steps`**: aantal recursieve integratiestappen in de voorwaartse pass.
-- **`dt`**: stapgrootte voor de numerieke integratie.
-- **`use_tanh_head`**: schakelt optionele `tanh`-activatie op de uitgang in.
+### Key attributes
+- **`cell`**: the underlying `LTCCell`.
+- **`h0`**: learnable initial hidden state.
+- **`head`**: linear projection from hidden state to scalar output.
+- **`steps`**: number of recursive integration steps during the forward pass.
+- **`dt`**: step size for numerical integration.
+- **`use_tanh_head`**: toggles an optional `tanh` activation on the output.
 
-### Kernmethoden
-- **`forward(x)`**: voert de recurrente dynamiek `steps` keer uit en produceert
-  een voorspelling per sample.
-- **`compute_loss(pred, target, ...)`**: wikkelt de globale `physics_loss`
-  helper zodat invariantie-, Huber- of MSE-verlies eenvoudig toegepast kan
-  worden, inclusief toegang tot de laatste regularisatietermen.
+### Core methods
+- **`forward(x)`**: runs the recurrent dynamics `steps` times and returns a
+  prediction per sample.
+- **`compute_loss(pred, target, ...)`**: wraps the global `physics_loss` helper
+  so invariance, Huber, or MSE losses can be applied easily, with access to the
+  latest regularisation terms.

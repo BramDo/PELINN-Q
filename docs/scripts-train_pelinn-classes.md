@@ -1,17 +1,16 @@
-# Klassen in `scripts/train_pelinn.py`
+# Classes in `scripts/train_pelinn.py`
 
 ## `QemDataset`
-Een `torch.utils.data.Dataset`-implementatie die gesynthetiseerde
-quantum-error-mitigatie-samples bevat.
+A `torch.utils.data.Dataset` implementation that stores synthesised quantum
+error mitigation samples.
 
-### Belangrijkste attributen
-- **`X`**: `numpy.ndarray` met de samengestelde featurevector per sample.
-- **`y`**: `numpy.ndarray` met ideale verwachtingswaarden per sample.
-- **`cid`**: `numpy.ndarray` met circuit-identificaties voor het groeperen van
-  metingen.
+### Key attributes
+- **`X`**: `numpy.ndarray` containing the composite feature vector per sample.
+- **`y`**: `numpy.ndarray` with ideal expectation values per sample.
+- **`cid`**: `numpy.ndarray` with circuit identifiers used to group
+  measurements.
 
-### Kernmethoden
-- **`__len__`**: retourneert het aantal samples in de dataset.
-- **`__getitem__(index)`**: geeft een tuple `(features, target, circuit_id)`
-  voor index-gebaseerde toegang, geschikt voor gebruik met PyTorch
-  `DataLoader`.
+### Core methods
+- **`__len__`**: returns the number of samples in the dataset.
+- **`__getitem__(index)`**: returns `(features, target, circuit_id)` for
+  index-based access, suitable for use with a PyTorch `DataLoader`.

@@ -1,38 +1,37 @@
-# Klassen in `scripts/eval_benchmarks.py`
+# Classes in `scripts/eval_benchmarks.py`
 
 ## `BaselineConfig`
-Een `@dataclass` die hyperparameters voor baseline-methoden bundelt.
+A `@dataclass` that groups hyperparameters for baseline methods.
 
-### Velden
-- **`zne_scale_factors`** (`Sequence[float]`): schaalfactoren voor ZNE-folding.
-- **`cdr_training_circuits`** (`int`): aantal trainingscircuits voor CDR.
+### Fields
+- **`zne_scale_factors`** (`Sequence[float]`): scaling factors for ZNE folding.
+- **`cdr_training_circuits`** (`int`): number of training circuits for CDR.
 
 ## `SamplesDataset`
-Een PyTorch `Dataset` voor genormaliseerde samplecollecties die tijdens
-trainings- en evaluatiefases worden gebruikt.
+A PyTorch `Dataset` for normalised sample collections used during training and
+evaluation phases.
 
-### Belangrijkste attributen
-- **`X`**: `torch.Tensor` met (optioneel) genormaliseerde featurevectoren.
-- **`y`**: `torch.Tensor` met ideale verwachtingswaarden.
-- **`cid`**: `torch.Tensor` met circuit-identificaties om invariantieverliezen te
-  ondersteunen.
+### Key attributes
+- **`X`**: `torch.Tensor` containing (optionally) normalised feature vectors.
+- **`y`**: `torch.Tensor` with ideal expectation values.
+- **`cid`**: `torch.Tensor` with circuit identifiers to support invariance
+  losses.
 
-### Kernmethoden
-- **`__len__`**: retourneert het aantal samples.
-- **`__getitem__(index)`**: levert `(features, target, circuit_id)` voor de
-  gegeven index.
+### Core methods
+- **`__len__`**: returns the number of samples.
+- **`__getitem__(index)`**: yields `(features, target, circuit_id)` for the
+  provided index.
 
 ## `NoisyExecutorPool`
-Beheert een cache van Qiskit `AerSimulator`-backends en bijbehorende
-`BackendEstimator`-instanties om herhaalde evaluaties te versnellen.
+Maintains a cache of Qiskit `AerSimulator` backends and associated
+`BackendEstimator` instances to speed up repeated evaluations.
 
-### Belangrijkste attributen
-- **`_cache`**: dictionary die ruisconfiguraties (als gesorteerde tuples) mapt
-  naar `(AerSimulator, BackendEstimator)`-paren.
+### Key attributes
+- **`_cache`**: dictionary mapping noise configurations (as sorted tuples) to
+  `(AerSimulator, BackendEstimator)` pairs.
 
-### Kernmethoden
-- **`get_executor(noise_cfg, observable, shots)`**: geeft een uitvoerfunctie die
-  een circuit transpileert voor de bijhorende ruisconfiguratie en daarna de
-  verwachting van het opgegeven observabelen berekent. De helper zorgt voor
-  caching van backends en stelt de uitvoerfunctie in staat om shot-aantallen te
-  honoreren.
+### Core methods
+- **`get_executor(noise_cfg, observable, shots)`**: returns an executor function
+  that transpiles a circuit for the specified noise configuration and then
+  evaluates the expectation value of the provided observable. The helper manages
+  backend caching and ensures the executor honours shot counts.

@@ -1,4 +1,4 @@
-# Klassen in `baselines/zne_mitiq.py`
+# Classes in `baselines/zne_mitiq.py`
 
-Deze module definieert geen klassen. De functionaliteit bestaat volledig uit
-hulpfuncties voor het uitvoeren van Zero-Noise Extrapolation (ZNE) met Mitiq.
+This module does not define any classes. All functionality is supplied through
+helper functions for performing Zero-Noise Extrapolation (ZNE) with Mitiq.

@@ -1,4 +1,4 @@
-# Klassen in `baselines/cdr_mitiq.py`
+# Classes in `baselines/cdr_mitiq.py`
 
-Deze module bevat geen klassen. Alle logica voor Clifford Data Regression (CDR)
-wordt geleverd via functies en interne hulpfuncties.
+This module does not define any classes. All Clifford Data Regression (CDR)
+logic is provided through functions and internal helpers.

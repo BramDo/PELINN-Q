@@ -1,12 +1,12 @@
-# Klassen in `pelinn/data/qiskit_dataset.py`
+# Classes in `pelinn/data/qiskit_dataset.py`
 
 ## `Sample`
-Een `@dataclass` die één datapunt voor quantum error mitigation voorstelt.
+A `@dataclass` representing a single data point for quantum error mitigation.
 
-### Velden
-- **`x`** (`numpy.ndarray`): samengestelde featurevector met circuitstatistieken,
-  ruisparameters en meetresultaten.
-- **`y_noisy`** (`float`): gemeten verwachtingswaarde onder een noisy backend.
-- **`y_ideal`** (`float`): referentie-verwachtingswaarde uit een ideale simulatie.
-- **`meta`** (`Dict`): aanvullende metadata, zoals het oorspronkelijke circuit,
-  de gebruikte ruisconfiguratie en shot-aantallen.
+### Fields
+- **`x`** (`numpy.ndarray`): composite feature vector containing circuit
+  statistics, noise parameters, and measurement outcomes.
+- **`y_noisy`** (`float`): measured expectation value under a noisy backend.
+- **`y_ideal`** (`float`): reference expectation value from an ideal simulation.
+- **`meta`** (`Dict`): additional metadata such as the original circuit, the
+  noise configuration used, and the number of shots.
