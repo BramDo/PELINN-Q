@@ -2,6 +2,9 @@ title: "PELINN-Q"
 description: "Liquid Time-Constant Networks for Quantum Systems"
 theme: minima
 
+url: https://pelinn.edukaizen.nl
+baseurl: ""   # leeg bij custom domain op root
+
 header_pages:
   - index.md
   - about.md
