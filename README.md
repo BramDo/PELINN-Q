@@ -21,4 +21,7 @@ Technische documentatie over hoe je PELINN-Q kunt installeren, configureren en g
 ### [Getting Started](./getting-started)
 Een stap-voor-stap handleiding om snel te beginnen met PELINN-Q, inclusief installatieïnstructies en je eerste experiment.
 
+### [Class Analyzer](./class-analyzer)
+Interactieve webapp om Python-classes uit de PELINN-Q repository op te halen en automatisch te analyseren.
+
 
