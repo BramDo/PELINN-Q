@@ -16,38 +16,38 @@
     "normalised": true
   },
   "dataset": {
-    "dataset_path": "/mnt/c/Users/Lenna/SynologyDrive/QAMP/QAMP_project_group_14/Experiments/data/qiskit_samples.npz",
+    "dataset_path": "/mnt/c/Users/Lenna/SynologyDrive/PE-LiNN-Q/QAMP_project_group_14/Experiments/data/qiskit_samples.npz",
     "num_train_samples": 320,
     "num_val_samples": 80,
     "num_features": 12,
     "normalised": true
   },
   "metrics": {
-    "mae": 0.1696748286485672,
-    "rmse": 0.20740613341331482
+    "mae": 0.10581444203853607,
+    "rmse": 0.13334769010543823
   },
   "benchmarks": {
     "num_samples": 80,
     "metrics": {
       "PE-LINN": {
-        "mae": 0.1696748286485672,
-        "rmse": 0.2074061364418858,
-        "max_abs": 0.6038811206817627
+        "mae": 0.10581444203853607,
+        "rmse": 0.13334768818407552,
+        "max_abs": 0.38196995854377747
       },
       "NOISY": {
-        "mae": 0.1769287109375,
-        "rmse": 0.22386521170307874,
-        "max_abs": 0.615234375
+        "mae": 0.189398193359375,
+        "rmse": 0.23480084832580855,
+        "max_abs": 0.70458984375
       },
       "ZNE": {
-        "mae": 0.19458496093750005,
-        "rmse": 0.24646764828472115,
-        "max_abs": 0.7601562500000005
+        "mae": 0.19637207031249998,
+        "rmse": 0.24210188946102834,
+        "max_abs": 0.6608398437499998
       },
       "CDR": {
-        "mae": 0.18064482015041627,
-        "rmse": 0.22545118310441034,
-        "max_abs": 0.5554237803989942
+        "mae": 0.16383624721118809,
+        "rmse": 0.20768766315717452,
+        "max_abs": 0.574944288578532
       }
     }
   }
