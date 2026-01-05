@@ -212,7 +212,20 @@ def set_seed(seed: int) -> None:
         torch.cuda.manual_seed_all(seed)
 
 
-def make_circuit_family(num_qubits: int, num_circuits: int, rng: random.Random) -> tuple[List[QuantumCircuit], List[SparsePauliOp]]:
+def make_circuit_family(
+    num_qubits: int,
+    num_circuits: int,
+    rng: random.Random | np.random.Generator,
+) -> tuple[List[QuantumCircuit], List[SparsePauliOp]]:
+    def _rand_index(upper: int) -> int:
+        if hasattr(rng, "randrange"):
+            return int(rng.randrange(upper))
+        if hasattr(rng, "integers"):
+            return int(rng.integers(0, upper))
+        if hasattr(rng, "randint"):
+            return int(rng.randint(0, upper))
+        return int(np.random.randint(0, upper))
+
     circuits: List[QuantumCircuit] = []
     observables: List[SparsePauliOp] = []
     for _ in range(num_circuits):
@@ -226,7 +239,7 @@ def make_circuit_family(num_qubits: int, num_circuits: int, rng: random.Random) 
                 qc.rz(rng.uniform(-np.pi, np.pi), q)
             for q in range(0, num_qubits - 1):
                 qc.cx(q, q + 1)
-            qc.rx(rng.uniform(-np.pi, np.pi), rng.randrange(num_qubits))
+            qc.rx(rng.uniform(-np.pi, np.pi), _rand_index(num_qubits))
         qc.measure_all(False)
         circuits.append(qc)
         observables.append(SparsePauliOp.from_list([("Z" + "I" * (num_qubits - 1), 1.0)]))
