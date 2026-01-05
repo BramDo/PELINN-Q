@@ -1,0 +1,29 @@
+{
+  "model": "PELiNNQEM",
+  "configuration": {
+    "input_dim": 1,
+    "hidden_dim": 96,
+    "steps": 6,
+    "dt": 0.25,
+    "use_tanh_head": false
+  },
+  "training_parameters": {
+    "epochs": 50,
+    "batch_size": 32,
+    "learning_rate": 0.0003,
+    "weight_decay": 0.01,
+    "alpha_inv": 0.1,
+    "normalised": true
+  },
+  "dataset": {
+    "dataset_path": "/mnt/c/Users/Lenna/SynologyDrive/QAMP/QAMP_project_group_14/experiments/data/demo_dataset.npz",
+    "num_train_samples": 120,
+    "num_val_samples": 30,
+    "num_features": 1,
+    "normalised": true
+  },
+  "metrics": {
+    "mae": 0.04049621522426605,
+    "rmse": 0.08826392143964767
+  }
+}

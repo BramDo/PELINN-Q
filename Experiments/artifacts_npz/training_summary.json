@@ -1,0 +1,54 @@
+{
+  "model": "PELiNNQEM",
+  "configuration": {
+    "input_dim": 12,
+    "hidden_dim": 96,
+    "steps": 6,
+    "dt": 0.25,
+    "use_tanh_head": false
+  },
+  "training_parameters": {
+    "epochs": 40,
+    "batch_size": 32,
+    "learning_rate": 0.0003,
+    "weight_decay": 0.01,
+    "alpha_inv": 0.1,
+    "normalised": true
+  },
+  "dataset": {
+    "dataset_path": "/mnt/c/Users/Lenna/SynologyDrive/QAMP/QAMP_project_group_14/Experiments/data/qiskit_samples.npz",
+    "num_train_samples": 320,
+    "num_val_samples": 80,
+    "num_features": 12,
+    "normalised": true
+  },
+  "metrics": {
+    "mae": 0.1696748286485672,
+    "rmse": 0.20740613341331482
+  },
+  "benchmarks": {
+    "num_samples": 50,
+    "metrics": {
+      "PE-LINN": {
+        "mae": 0.16286714375019073,
+        "rmse": 0.19638886452920065,
+        "max_abs": 0.4589700996875763
+      },
+      "NOISY": {
+        "mae": 0.1716796875,
+        "rmse": 0.2140858435606753,
+        "max_abs": 0.490234375
+      },
+      "ZNE": {
+        "mae": 0.1932519531249998,
+        "rmse": 0.23216171963531324,
+        "max_abs": 0.6059570312499994
+      },
+      "CDR": {
+        "mae": 0.1851221475255464,
+        "rmse": 0.22627443111752604,
+        "max_abs": 0.4468970803881777
+      }
+    }
+  }
+}
